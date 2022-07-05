@@ -1,9 +1,31 @@
-input {
-	max-width: 3em;
+body{
+
+background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(96,12,196,1) 26%, rgba(0,212,255,1) 100%);
+
 }
 
+
+
+input {
+	max-width: 3em;
+	max-height: 3em;
+	font-size: 13px;
+	text-transform: uppercase;
+}
+td {
+	max-width: 3em;
+	max-height: 3em;
+	font-size: 13px;
+}
+tr {
+	max-width: 3em;
+	max-height: 3em;
+	font-size: 13px;
+}
+/* id para quadradinhos vazios*/
 #vazio {
 	max-width: 3em;
 	max-height: 3em;
+	outline-color: white;
 }
-
