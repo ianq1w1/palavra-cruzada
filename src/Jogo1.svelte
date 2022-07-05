@@ -38,6 +38,8 @@ let tabelaResposta = [
 	["X", "X", "X", "X", "X", "X","X","X","X","X"],
 	] 
 
+
+	//fazer um contador de acertos e erros na função
 Contagem(tabelaVazia,tabelaResposta)
 
 </script>
