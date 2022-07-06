@@ -53,7 +53,7 @@ Contagem(tabelaVazia,tabelaResposta)
 <table>
 	{#each tabelaResposta as linha,i}
 		<tr>
-			{#each tabelaResposta as dado,j}
+			{#each linha as dado,j}
 				<td>
 					<input type="text" maxlength="1" bind:value={tabelaVazia[i][j]}>
 				</td>
