@@ -4,44 +4,35 @@
 
 <script>
 
-function Contagem(tabVazia,tabResposta) {
- let acertos = 0
- let erros = 0
-	
-	for(let i=0; i < tabResposta.length; i++){
-		for (let j=0; j < tabResposta[i].length; j++){
-			
-		if(tabVazia[i][j] === tabResposta[i][j]){
-				 return acertos++
-		}else if(tabVazia[i][j] !== tabResposta[i][j]){
-				 return erros++
-		}
+function Iguais(tab1,tab2){	
+	for(let i=0; i < tab2.length; i++){
+		for (let j=0; j < tab2[i].length; j++){
+			if(tab1[i][j] == tab2[i][j]){
+				return i
+			}
+		}	
 	}
 }
-}
 
+function Contagem(tabVazia,tabResposta) {
+ let acertos = 0
+
+	 if(Iguais(tabVazia,tabResposta)){
+		return acertos ++
+	}
+	console.log(acertos)
+}
 	//estrutura do jogo
 let tabelaVazia = [ 
-	[],
-	[],
-	[],
-	[],
-	[],
-	[],
-	[],
-	[]
+	["A","B","",""],
+	["","","",""],
+	["","","",""]
 	]
 let tabelaResposta = [
-	["A", "W", "Y", "Z", "K", "X","X","X","X","X"],  
-	["B", "X", "X", "X", "X", "X","X","X","X","X"],
-	["C", "X", "X", "X", "X", "X","X","X","X","X"],
-	["X", "X", "X", "X", "X", "X","X","X","X","X"],
-	["X", "X", "X", "X", "X", "X","X","X","X","X"],
-	["X", "X", "X", "X", "X", "X","X","X","X","X"],
-	["X", "X", "X", "X", "X", "X","X","X","X","X"],
-	["X", "X", "X", "X", "X", "X","X","X","X","X"]
+	["A", "B", "C", "D"],  
+	["E", "F", "G", "H"],
+	["I", "J", "K", "L"]
 	] 
-
 
 Contagem(tabelaVazia,tabelaResposta)
 </script>
@@ -55,9 +46,9 @@ Contagem(tabelaVazia,tabelaResposta)
 <table>
 	{#each tabelaResposta as linha,i}
 		<tr>
-			{#each linha as tabelaResposta ,j}
+			{#each linha as tabelaResposta,j}
 				<td>
-					<input type="text" maxlength="1" bind:value={tabelaVazia[i][j]}>
+					<input maxlength="1" bind:value={tabelaVazia[i][j]}>
 				</td>
 			{/each} <!-- corrigir o erro na computação de tds no segundo loop each utilizando dado-->
 		</tr>
@@ -69,3 +60,6 @@ Contagem(tabelaVazia,tabelaResposta)
 
 
 <!-- reaproveita o botão de voltar para o menu -->
+
+
+
