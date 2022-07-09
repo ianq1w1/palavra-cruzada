@@ -4,37 +4,42 @@
 
 <script>
 
-function Iguais(tab1,tab2){	
-	for(let i=0; i < tab2.length; i++){
-		for (let j=0; j < tab2[i].length; j++){
-			if(tab1[i][j] == tab2[i][j]){
-				return i
+function Contagem(tab1,tab2){	
+let acertos = 0
+	
+	for(let L=0; L < tab1.length; L++){
+		for (let C=0; C < tab1[L].length; C++){
+			if(tab1[L][C] == tab2[L][C]){
+				acertos++
 			}
 		}	
 	}
+
+console.log(acertos)
 }
 
-function Contagem(tabVazia,tabResposta) {
- let acertos = 0
-
-	 if(Iguais(tabVazia,tabResposta)){
-		return acertos ++
-	}
-	console.log(acertos)
+function Preencher(){
+	let letras = document.getElementById('resposta')
+	tabelaVazia.push(letras)
+	console.log(tabelaVazia)
 }
-	//estrutura do jogo
+
+
+
+
 let tabelaVazia = [ 
-	["A","B","",""],
-	["","","",""],
-	["","","",""]
+	[],
+	[],
+	[]
 	]
+
 let tabelaResposta = [
-	["A", "B", "C", "D"],  
-	["E", "F", "G", "H"],
-	["I", "J", "K", "L"]
+	[22 ,"b", "c", "d"],  
+	["e", "f", "g", "h"],
+	["i", "j", "k", "l"]
 	] 
 
-Contagem(tabelaVazia,tabelaResposta)
+
 </script>
 <!--modelo do jogo em html-->
 <h2>
@@ -46,20 +51,20 @@ Contagem(tabelaVazia,tabelaResposta)
 <table>
 	{#each tabelaResposta as linha,i}
 		<tr>
-			{#each linha as tabelaResposta,j}
+			{#each linha as tabelaResposta,j}	
 				<td>
-					<input maxlength="1" bind:value={tabelaVazia[i][j]}>
-				</td>
-			{/each} <!-- corrigir o erro na computação de tds no segundo loop each utilizando dado-->
+						<input maxlength="1" bind:value={tabelaVazia[i][j]} id="resposta">
+					</td>
+			{/each} 
 		</tr>
 	{/each}
 </table>
-	</center>
+	<button on:click="{()=> Preencher()}" on:click="{()=> Contagem(tabelaVazia,tabelaResposta)}">ENVIAR ESSA BOMBA!</button>	
+</center>
 </section>
 
 
 
 <!-- reaproveita o botão de voltar para o menu -->
-
 
 
